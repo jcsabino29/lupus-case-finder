@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/*
+ * Lupus Case Finder design tokens.
+ * Clean dark theme. All colors meet WCAG AA contrast against --bg / --surface
+ * for their intended use (text on surfaces, accents on dark).
+ */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #0a0d12;
+  --surface: #10151c;
+  --surface-raised: #151b24;
+  --surface-sunken: #0c1016;
+  --border: #212a36;
+  --border-strong: #2e3a4a;
+
+  /* Text */
+  --fg: #e7ebf1;
+  --fg-muted: #9aa5b5;
+  --fg-subtle: #6f7b8c;
+
+  /* Brand: violet, the lupus awareness color, tuned for dark UI */
+  --accent: #9d8cff;
+  --accent-strong: #b3a6ff;
+  --accent-fg: #0d0a1f;
+  --accent-soft: rgb(157 140 255 / 0.12);
+
+  /* Status */
+  --success: #3ccf9f;
+  --success-soft: rgb(60 207 159 / 0.12);
+  --warning: #f2b84b;
+  --warning-soft: rgb(242 184 75 / 0.12);
+  --danger: #f2708a;
+  --danger-soft: rgb(242 112 138 / 0.12);
+  --info: #5cb8f2;
+  --info-soft: rgb(92 184 242 / 0.12);
+
+  --ring: #b3a6ff;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Layout */
+  --sidebar-width: 15rem;
+  --topbar-height: 3.5rem;
+  --content-max: 72rem;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-ring: var(--ring);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Type scale (size / line-height) */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 0.9375rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.375rem;
+  --text-xl--line-height: 1.875rem;
+  --text-2xl: 1.75rem;
+  --text-2xl--line-height: 2.25rem;
+  --text-3xl: 2.25rem;
+  --text-3xl--line-height: 2.625rem;
+
+  /* Spacing base: Tailwind multiplies this (p-4 = 1rem) */
+  --spacing: 0.25rem;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
