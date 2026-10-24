@@ -147,3 +147,49 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# -----------------------------------------------------------------------------
+# Lupus Case Finder
+# -----------------------------------------------------------------------------
+# Next.js / tooling
+.next/
+out/
+next-env.d.ts
+.vercel
+*.pem
+
+# Environment files: only the committed *.example templates are allowed
+.env
+.env.*
+!.env.example
+!**/.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Generated Prisma client
+src/generated/
+
+# Python worker
+worker/.venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Patient data, synthetic or otherwise, never goes in git.
+# Generate it locally with Synthea and load it into the database instead.
+data/
+datasets/
+synthea/output/
+output/fhir/
+output/csv/
+**/synthea_output/
+*.ndjson
+*.parquet
+*.csv
+*.sqlite
+*.db
+*.dump
+*.bak
