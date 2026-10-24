@@ -1,0 +1,23 @@
+// Lupus Case Finder: Prisma schema
+//
+// Two Postgres schemas, kept strictly apart:
+//   protected  identifiable (synthetic) records. Admin and ingest worker only.
+//   research   de-identified records, embeddings and search indexes.
+//
+// Source of truth for DDL, roles, grants and row-level security is the SQL in
+// supabase/migrations. Prisma models mirror those tables for typed queries.
+// Real models arrive in stage 1; this file intentionally has none yet.
+//
+// Connection URLs live in prisma.config.ts (Prisma 7 style), read from env:
+//   DATABASE_URL  pooled connection used by the app at runtime
+//   DIRECT_URL    direct connection used by the Prisma CLI
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["protected", "research"]
+}
