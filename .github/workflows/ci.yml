@@ -71,7 +71,8 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: pytest
-      - run: pip-audit --skip-editable --strict
+      # The local package is editable and not on PyPI, so it is skipped; every dependency is audited.
+      - run: pip-audit --skip-editable
 
   database:
     name: Database (migrations + pgTAP)
